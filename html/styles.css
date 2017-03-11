@@ -1,0 +1,13 @@
+li{
+	list-style-type: none;
+}
+.choose{
+	margin: 5px 5px 5px 5px;
+}
+.Admin{
+	font-size: 18px;
+}
+button, .enter{
+	width: 200px;
+	margin-left: 50px;
+}
