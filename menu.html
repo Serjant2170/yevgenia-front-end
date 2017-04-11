@@ -1,3 +1,4 @@
+<?php  require_once "./auth.php" ?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,9 +7,47 @@
 </head>
 <body>
 	<h1>Choose type of lessons</h1>
-	<ul>
-		<a href ="./classrom.html"><li class ="choose"><button>Lectures</button></li></a>
-		<a href ="./lectures.html"><li class ="choose"><button>Classrooms</button></li></a>
+	<ul >
+		<? if($status=="admin"){
+			$html ='<a href ="./lectures.html"><li class ="choose"><button>Lectures</button></li></a>
+			<a href ="./workshops.html"><li class ="choose"><button>Workshops</button></li></a>
+			<a href ="./speakers.html"><li class ="choose"><button>Speakers</button></li></a>';
+			PRINT $html;}
+			elseif($status=="moderator"){
+				$html ='<a href ="./lectures.html"><li class ="choose"><button>Lectures</button></li></a>
+			<a href ="./workshops.html"><li class ="choose"><button>Workshops</button></li></a>
+			<a href ="./speakers.html"><li class ="choose"><button>Speakers</button></li></a>';
+			PRINT $html;
+			}
+		// только работа с вопросами, добавть эту страницу
+			elseif ($status=="speaker") {
+				$html='<a href ="./lectures.html"><li class ="choose"><button>Lectures</button></li></a>
+			<a href ="./workshops.html"><li class ="choose"><button>Workshops</button></li></a>';
+			PRINT $html;
+			}
+
+		?>
+
+		
+	    <!-- <a href ="./lectures.html"><li class ="choose"><button>Lectures</button></li></a>
+		<a href ="./workshops.html"><li class ="choose"><button>Workshops</button></li></a>
+		<a href ="./speakers.html"><li class ="choose"><button>Speakers</button></li></a>  -->
 	</ul>
+	<div class="main_table">
+	<?php
+		$file = file_get_contents("http://yapp.azurewebsites.net/api/get_lectures");
+		$json = json_decode($file);
+		foreach($json->Id_lecture->Topic->Descriptiom->Date_start->Date_end->Speaker->Photo  as $obj):
+	?>
+	    ID: <?=$obj->Id_lecture?><br>
+	    Topic: <?=$obj->Topic?><hr>
+	    Description: <?=$obj->Description?><hr>
+	    Date start: <?=$obj->Date_start?><hr>
+	    Date end: <?=$obj->Date_end?><hr>
+	    Speaker: <?=$obj->Speaker?><hr>
+	    Photo: <?=$obj->Photo?><hr>
+	<?php endforeach; 
+	?>
+	</div>
 </body>
 </html>

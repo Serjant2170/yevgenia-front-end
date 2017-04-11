@@ -17,8 +17,8 @@ header('HTTP/1.0 401 Unauthorized');
 print "Login failed!n"; 
 } 
 else { 
-// show secret page: 
 header('Location: menu.html'); 
+$status = "admin";
 } 
 ?>
 
