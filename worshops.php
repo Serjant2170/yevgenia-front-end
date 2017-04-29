@@ -11,6 +11,7 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 </head>
 <body>
 	<a href ="./workshops_add.php"><button>Add</button></a>
+	<a href ="./menu.php"><button>back</button></a>
 	<div class="main_table">
 	<?php
 		$file = file_get_contents("http://yapp.azurewebsites.net/api/lectures?typeOfEvents=workshops");
