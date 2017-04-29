@@ -11,13 +11,13 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 </head>
 <body>
 	<h1>Choose type of lessons</h1>
-	<ul >
+	<!--<ul >
 		<?php 
 		if($_SESSION['status'] == "admin"){
 			$html ='<a href ="./lectures.php"><li class ="choose"><button>Lectures</button></li></a>
 			<a href ="./workshops.php"><li class ="choose"><button>Workshops</button></li></a>
 			<a href ="./speakers.php"><li class ="choose"><button>Speakers</button></li></a>
-			<a href ="./questions.php"><li class ="choose"><button>Questions</button></li></a>';
+			<a href ="./speakers.php"><li class ="choose"><button>Questions</button></li></a>';
 			PRINT $html;}
 			elseif($_SESSION['status'] == "moderator"){
 				$html ='<a href ="./lectures.php"><li class ="choose"><button>Lectures</button></li></a>
@@ -32,7 +32,7 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 			PRINT $html;
 			}
 
-		?>
+		?> -->
 
 		
 	    <!-- <a href ="./lectures.php"><li class ="choose"><button>Lectures</button></li></a>
@@ -41,7 +41,7 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 	</ul>
 	<div class="main_table">
 	<?php
-		$file = file_get_contents("http://yapp.azurewebsites.net/api/get_lectures");
+		$file = file_get_contents("http://yapp.azurewebsites.net/api/lectures/questions");
 		$json = json_decode($file);
 		foreach($json as $obj):
 	?>

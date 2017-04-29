@@ -2,28 +2,30 @@
 @session_start();
 //login control
 if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
-?><html>
+?>
+<html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href ="styles.css">
-	<title>Lectures</title>
+	<title>Speakers</title>
 </head>
 <body>
-	<form>
-		<h1>Speaker:</h1>
-		<input type="text">
-		<br><br>
-		<h1>Choose speaker's photo</h1>
-		<input type="file">
-		<br><br>
-		<h1>Workshops/leactures:</h1>
-		<input type="text" class="header">
-		<br> <br>
-		<h1>Description</h1>
-		<textarea name="comment" id="comment-field" class="main"></textarea>
-		<br><br>
-		<input type="submit" value="Ok" class="send">
-	</form>
-	<a href="./menu.php"><button class="back">Back</button></a>
+	<a href ="./speakers_add.php"><button>Add</button></a>
+	<div class="main_table">
+	<?php
+		$file = file_get_contents("http://yapp.azurewebsites.net/api/speakers");
+		$json = json_decode($file);
+		foreach($json as $obj):
+	?>
+	    ID: <?=$obj->Id_lecture?><br>
+	    Topic: <?=$obj->Topic?><hr>
+	    Description: <?=$obj->Description?><hr>
+	    Date start: <?=$obj->Date_start?><hr>
+	    Date end: <?=$obj->Date_end?><hr>
+	    Speaker: <?=$obj->Speaker?><hr>
+	    Photo: <?=$obj->Photo?><hr>
+	<?php endforeach; 
+	?>
+	</div>
 </body>
 </html>

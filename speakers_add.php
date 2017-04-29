@@ -2,8 +2,7 @@
 @session_start();
 //login control
 if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
-?>
-<html>
+?><html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href ="styles.css">
@@ -14,17 +13,10 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 		<h1>Speaker:</h1>
 		<input type="text">
 		<br><br>
-		<h1>Choose courator's photo</h1>
-		<input type="file" class="header">
+		<h1>Choose speaker's photo</h1>
+		<input type="file">
 		<br><br>
-		<ul>
-			<li class="choose"><h1>Date start</h1></li>
-			<li class="choose"><input type="text"></li>
-			<li class="choose"><h1>Date end</h1></li>
-			<li class="choose"><input type="text"></li>
-		</ul>
-		<br><br>
-		<h1>Write the header</h1>
+		<h1>Workshops/leactures:</h1>
 		<input type="text" class="header">
 		<br> <br>
 		<h1>Description</h1>
@@ -32,6 +24,6 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 		<br><br>
 		<input type="submit" value="Ok" class="send">
 	</form>
-	<a href="./menu.php"><button class="back">Back</button></a>
+	<a href="./speakers.php"><button class="back">Back</button></a>
 </body>
 </html>

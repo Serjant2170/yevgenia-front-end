@@ -7,13 +7,13 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href ="styles.css">
-	<title>Lectures</title>
+	<title>Workshops</title>
 </head>
 <body>
-	<a href ="./lectures_add.php"><button>Add</button></a>
+	<a href ="./workshops_add.php"><button>Add</button></a>
 	<div class="main_table">
 	<?php
-		$file = file_get_contents("http://yapp.azurewebsites.net/api/lectures?typeOfEvents=lectures");
+		$file = file_get_contents("http://yapp.azurewebsites.net/api/lectures?typeOfEvents=workshops");
 		$json = json_decode($file);
 		foreach($json as $obj):
 	?>
