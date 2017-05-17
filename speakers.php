@@ -18,13 +18,9 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 		$json = json_decode($file);
 		foreach($json as $obj):
 	?>
-	    ID: <?=$obj->Id_lecture?><br>
-	    Topic: <?=$obj->Topic?><hr>
-	    Description: <?=$obj->Description?><hr>
-	    Date start: <?=$obj->Date_start?><hr>
-	    Date end: <?=$obj->Date_end?><hr>
-	    Speaker: <?=$obj->Speaker?><hr>
-	    Photo: <?=$obj->Photo?><hr>
+	    ID: <?=$obj->id_speaker?><br>
+	    Name: <?=$obj->name?><hr>
+	    Photo: <?=$obj->photo?><hr>
 	<?php endforeach; 
 	?>
 	</div>
