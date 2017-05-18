@@ -11,7 +11,8 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 </head>
 <body>
 	<a href ="./speakers_add.php"><button>Add</button></a>
-	<a href ="./menu.php"><button>back</button></a>
+	<a href ="./menu.php"><button>Back</button></a>
+	<br><br>
 	<div class="main_table">
 	<?php
 		$file = file_get_contents("http://yapp.azurewebsites.net/api/speakers");
@@ -19,8 +20,9 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 		foreach($json as $obj):
 	?>
 	    ID: <?=$obj->id_speaker?><br>
-	    Name: <?=$obj->name?><hr>
+	    Name: <?=$obj->name?><br>
 	    Photo: <?=$obj->photo?><hr>
+	    <br>
 	<?php endforeach; 
 	?>
 	</div>

@@ -11,20 +11,22 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 </head>
 <body>
 	<a href ="./workshops_add.php"><button>Add</button></a>
-	<a href ="./menu.php"><button>back</button></a>
+	<a href ="./menu.php"><button>Back</button></a>
+	<br><br>
 	<div class="main_table">
 	<?php
 		$file = file_get_contents("http://yapp.azurewebsites.net/api/lectures?typeOfEvents=workshops");
 		$json = json_decode($file);
 		foreach($json as $obj):
 	?>
-	    ID: <?=$obj->Id_lecture?><br>
-	    Topic: <?=$obj->Topic?><hr>
-	    Description: <?=$obj->Description?><hr>
-	    Date start: <?=$obj->Date_start?><hr>
-	    Date end: <?=$obj->Date_end?><hr>
-	    Speaker: <?=$obj->Speaker?><hr>
-	    Photo: <?=$obj->Photo?><hr>
+	    Topic: <?=$obj->topic?><br>
+	    Description: <?=$obj->description?><br>
+	    Date start: <?=$obj->date_start?><br>
+	    Date end: <?=$obj->date_end?><br>
+	    Place: <?=$obj->place?><br>
+	    Speaker: <?=$obj->id_speaker?><br>
+	    Photo: <?=$obj->photo?><hr>
+	    <br>
 	<?php endforeach; 
 	?>
 	</div>

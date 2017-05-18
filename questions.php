@@ -1,8 +1,3 @@
-<?php  
-@session_start();
-//login control
-if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
-?>
 <html>
 <?php  
 @session_start();
@@ -41,7 +36,10 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 			    Status: <?=$obj->status?><hr>
 			    <form onsubmit="sendRequest(question);return false">
 			    	<p><input type="text" value="<?=$obj->text?>" name="question"/></p>
-			    	<p><input type="submit"/></p>
+			    	<p><input type="submit" value="Submit"/></p>
+			    </form>
+			    <form onsubmit="">
+			    	<p><input type="submit" value ="Decline"/></p>
 			    </form>
 			<?php endforeach; 		
 		?>
