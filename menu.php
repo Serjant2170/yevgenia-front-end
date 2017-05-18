@@ -17,7 +17,7 @@ if (!$_SESSION['login_successful']){ session_destroy(); die("cry"); }
 			$html ='<a href ="./lectures.php"><li class ="choose"><button>Lectures</button></li></a>
 			<a href ="./workshops.php"><li class ="choose"><button>Workshops</button></li></a>
 			<a href ="./speakers.php"><li class ="choose"><button>Speakers</button></li></a>
-			<a href ="./questions.php"><li class ="choose"><button>Questions</button></li></a>';
+			<a href ="./questions.html"><li class ="choose"><button>Questions</button></li></a>';
 			PRINT $html;}
 			elseif($_SESSION['status'] == "moderator"){
 				$html ='<a href ="./lectures.php"><li class ="choose"><button>Lectures</button></li></a>
